@@ -5,5 +5,4 @@ module.exports = {
   },
   plugins: ['@snowpack/plugin-react-refresh'],
   extends: '@snowpack/app-scripts-react',
-  plugins: [],
 };
