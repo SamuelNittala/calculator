@@ -18,5 +18,7 @@ module.exports = {
     'import/no-unresolved': 'off',
     'import/extensions': 'off',
     'import/no-extraneous-dependencies': 'off',
+    'no-undef': 'off',
+    'linebreak-style': 'off',
   },
 };
