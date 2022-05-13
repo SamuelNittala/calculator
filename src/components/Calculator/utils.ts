@@ -26,6 +26,8 @@ export const ALLOWED_KEYS = [
   '*',
   '/',
   '=',
+  'C',
+  'c',
   KEY_LIST.BACKSPACE,
   KEY_LIST.ENTER,
 ];

@@ -33,6 +33,8 @@ export default function Calculator() {
         } catch (err) {
           setError(true);
         }
+      } else if (pressedKey.toLowerCase() === 'c') {
+        setInput('');
       } else {
         setInput((prev) => prev.concat(pressedKey));
       }
@@ -44,7 +46,7 @@ export default function Calculator() {
       <Header>
         <CalculatorInput error={error} input={input} />
         <KeyList
-          values={['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '+', '-', '=']}
+          values={['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '+', '-', '=', 'C']}
           pressedKey={String(pressedKey)}
         />
       </Header>
