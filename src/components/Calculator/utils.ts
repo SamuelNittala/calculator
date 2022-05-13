@@ -25,8 +25,7 @@ export const ALLOWED_KEYS = [
   '-',
   '*',
   '/',
+  '=',
   KEY_LIST.BACKSPACE,
   KEY_LIST.ENTER,
 ];
-
-export const calculate = (input: string): string => {};

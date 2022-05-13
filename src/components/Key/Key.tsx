@@ -2,16 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import type { KeyPropsType } from './Key.types';
 
-const Wrapper = styled.div`
-  background: grey;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
-`;
 const Button = styled.button`
-  padding: 1.5rem;
   border-radius: 0.5rem;
-  width: 10px;
+  width: 100px;
+  margin: 1rem;
+  padding: 0.5rem;
   background: ${(props) => (props.className === 'isClicked' ? 'green' : 'pink')};
+`;
+const ButtonValue = styled.h1`
+  margin: 0 auto;
 `;
 
 function Key({ value, clicked }: KeyPropsType) {
@@ -22,11 +21,11 @@ function Key({ value, clicked }: KeyPropsType) {
     }
   }, [clicked]);
   return (
-    <Wrapper>
+    <div>
       <Button type="button" ref={buttonRef} className={clicked ? 'isClicked' : 'notClicked'}>
-        {value}
+        <ButtonValue>{value}</ButtonValue>
       </Button>
-    </Wrapper>
+    </div>
   );
 }
 
