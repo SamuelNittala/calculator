@@ -15,7 +15,7 @@ export default function KeyList({ values, pressedKey }: KeyListPropsType) {
   return (
     <Wrapper className="key-list">
       {values.map((value) => (
-        <Key value={value} clicked={pressedKey === value.toLowerCase()} />
+        <Key value={value} clicked={pressedKey === value.toLowerCase()} key={value} />
       ))}
     </Wrapper>
   );
