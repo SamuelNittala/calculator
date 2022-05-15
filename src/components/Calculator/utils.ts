@@ -39,8 +39,14 @@ export const handleInput = (pressedKey: string, input: any, setInput: any, setEr
       setInput(input.slice(0, -1));
     } else if (pressedKey === KEY_LIST.ENTER || pressedKey === '=') {
       try {
-        // eslint-disable-next-line no-eval
-        setInput(String(window.eval(input)));
+        if (input) {
+          // eslint-disable-next-line no-eval
+          const res = window.eval(input);
+          if (typeof res !== 'number') {
+            throw new Error();
+          }
+          setInput(String(res));
+        }
       } catch (err) {
         setError(true);
         setInput('');
