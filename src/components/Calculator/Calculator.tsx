@@ -1,13 +1,13 @@
 import React from 'react';
 import KeyList from '../KeyList/KeyList';
 import CalculatorInput from './CalculatorInput';
-import { ALLOWED_KEYS, KEY_LIST } from './utils';
+import { handleInput } from './utils';
 import Header from '../Navigation/Header';
+import { useCalculator } from './CalculatorContext';
 
 export default function Calculator() {
   const [pressedKey, setPressedKey] = React.useState('');
-  const [input, setInput] = React.useState('');
-  const [error, setError] = React.useState(false);
+  const [input, setInput, error, setError] = useCalculator();
 
   React.useEffect(() => {
     window.addEventListener('keydown', (event) => {
@@ -23,22 +23,7 @@ export default function Calculator() {
   }, [pressedKey]);
 
   React.useEffect(() => {
-    if (ALLOWED_KEYS.find((key) => key === pressedKey)) {
-      setError(false);
-      if (pressedKey === KEY_LIST.BACKSPACE) {
-        setInput(input.slice(0, -1));
-      } else if (pressedKey === KEY_LIST.ENTER || pressedKey === '=') {
-        try {
-          setInput(String(window.eval(input)));
-        } catch (err) {
-          setError(true);
-        }
-      } else if (pressedKey.toLowerCase() === 'c') {
-        setInput('');
-      } else {
-        setInput((prev) => prev.concat(pressedKey));
-      }
-    }
+    handleInput(pressedKey, input, setInput, setError);
   }, [pressedKey]);
 
   return (
@@ -46,7 +31,7 @@ export default function Calculator() {
       <Header>
         <CalculatorInput error={error} input={input} />
         <KeyList
-          values={['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '+', '-', '=', 'C']}
+          values={['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '+', '-', '*', '/', '=', 'C']}
           pressedKey={String(pressedKey)}
         />
       </Header>
