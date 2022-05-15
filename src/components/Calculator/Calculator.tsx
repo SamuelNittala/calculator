@@ -31,7 +31,7 @@ export default function Calculator() {
       <Header>
         <CalculatorInput error={error} input={input} />
         <KeyList
-          values={['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '+', '-', '=', 'C']}
+          values={['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '+', '-', '*', '/', '=', 'C']}
           pressedKey={String(pressedKey)}
         />
       </Header>
