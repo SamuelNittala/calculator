@@ -8,17 +8,23 @@ type PropsType = {
 
 const Input = styled.input`
   display: block;
-  min-width: 500px;
-  margin: 1.5rem auto;
+  min-width: 350px;
+  min-height: 40px;
+  margin: 0 auto;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  color: white;
+  font-family: 'League Spartan', sans-serif;
   padding: 1.25rem;
+  background-color: hsl(224, 36%, 15%);
+  border-color: hsl(224, 36%, 15%);
   border-radius: 0.5rem;
-  font-size: 1.5rem;
-  font-family: 'Macondo', cursive;
+  font-size: 32px;
+  letter-spacing: 2px;
 `;
 const ErrorMessage = styled.p`
   color: red;
   font-size: 2rem;
-  font-family: 'Macondo', cursive;
   width: 400px;
   margin: 1.5rem auto;
 `;

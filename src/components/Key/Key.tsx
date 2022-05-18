@@ -6,12 +6,12 @@ import type { KeyPropsType } from './Key.types';
 
 const Button = styled.button`
   border-radius: 0.5rem;
-  width: 100px;
-  margin: 1rem;
-  padding: 0.5rem;
-  background: ${(props) => (props.className === 'isClicked' ? 'green' : 'pink')};
+  width: 80px;
+  height: 50px;
+  margin: 10px 5px;
+  font-family: 'League Spartan', sans-serif;
+  background: ${(props) => (props.className === 'isClicked' ? 'green' : 'hsl(30,25%,89%)')};
   font-size: 1.5rem;
-  font-family: 'Macondo', cursive;
   font-weight: bold;
 `;
 
@@ -33,17 +33,15 @@ function Key({ value, clicked }: KeyPropsType) {
     }
   };
   return (
-    <div>
-      <Button
-        type="button"
-        ref={buttonRef}
-        className={clicked || pointerClick ? 'isClicked' : 'notClicked'}
-        onPointerDown={handlePointerClick}
-        onPointerUp={() => setPointerClick(false)}
-      >
-        {value}
-      </Button>
-    </div>
+    <Button
+      type="button"
+      ref={buttonRef}
+      className={clicked || pointerClick ? 'isClicked' : 'notClicked'}
+      onPointerDown={handlePointerClick}
+      onPointerUp={() => setPointerClick(false)}
+    >
+      {value}
+    </Button>
   );
 }
 

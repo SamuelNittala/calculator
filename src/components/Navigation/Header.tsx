@@ -2,22 +2,26 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  margin: 0 auto;
-  margin-top: 1rem;
-  max-width: 800px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  max-width: 1440px;
+  min-width: 375px;
+  min-height: 375px;
 `;
 
 const StyledHeader = styled.h1`
-  font-size: 4rem;
-  width: 400px;
-  margin: 0 auto;
-  letter-spacing: 0.5rem;
-  font-family: 'Macondo', cursive;
+  font-size: 30px;
+  margin: 0;
+  color: white;
 `;
 export default function Header({ children }: any) {
   return (
     <Wrapper>
-      <StyledHeader> Calculator </StyledHeader>
+      <StyledHeader> calc</StyledHeader>
       {children}
     </Wrapper>
   );
