@@ -1,5 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
+import { clickMatcher } from '../Calculator/utils';
 import Key from '../Key/Key';
 import type { KeyListPropsType } from './KeyList.types';
 
@@ -18,7 +19,7 @@ export default function KeyList({ values, pressedKey }: KeyListPropsType) {
   return (
     <Wrapper className="key-list">
       {values.map((value) => (
-        <Key value={value} clicked={pressedKey === value.toLowerCase()} key={value} />
+        <Key value={value} clicked={clickMatcher(pressedKey, value.toLowerCase())} key={value} />
       ))}
     </Wrapper>
   );

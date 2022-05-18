@@ -16,6 +16,18 @@ const Button = styled.button`
   -moz-box-shadow: 10px 10px 10px -8px rgba(64, 78, 114, 0.75);
   font-size: 1.5rem;
   font-weight: bold;
+
+  &:nth-child(17) {
+    width: 170px;
+    background: ${(props) => (props.className === 'isClicked' ? 'gray' : 'hsl(225, 21%, 49%)')};
+    color: white;
+    letter-spacing: 3px;
+  }
+  &:nth-child(18) {
+    background: ${(props) => (props.className === 'isClicked' ? 'gray' : 'hsl(6, 63%, 50%)')};
+    color: white;
+    width: 170px;
+  }
 `;
 
 function Key({ value, clicked }: KeyPropsType) {
