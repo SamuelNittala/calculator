@@ -11,6 +11,9 @@ const Button = styled.button`
   margin: 10px 5px;
   font-family: 'League Spartan', sans-serif;
   background: ${(props) => (props.className === 'isClicked' ? 'green' : 'hsl(30,25%,89%)')};
+  box-shadow: 10px 10px 10px -8px rgba(64, 78, 114, 0.75);
+  -webkit-box-shadow: 10px 10px 10px -8px rgba(64, 78, 114, 0.75);
+  -moz-box-shadow: 10px 10px 10px -8px rgba(64, 78, 114, 0.75);
   font-size: 1.5rem;
   font-weight: bold;
 `;
