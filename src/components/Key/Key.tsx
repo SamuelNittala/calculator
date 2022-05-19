@@ -20,11 +20,17 @@ const Button = styled.button`
   &:nth-child(17) {
     width: 170px;
     background: ${(props) => (props.className === 'isClicked' ? 'gray' : 'hsl(225, 21%, 49%)')};
+    box-shadow: 10px 10px 33px 1px rgba(64, 78, 114, 0.75);
+    -webkit-box-shadow: 10px 10px 33px 1px rgba(64, 78, 114, 0.75);
+    -moz-box-shadow: 10px 10px 33px 1px rgba(64, 78, 114, 0.75);
     color: white;
     letter-spacing: 3px;
   }
   &:nth-child(18) {
     background: ${(props) => (props.className === 'isClicked' ? 'gray' : 'hsl(6, 63%, 50%)')};
+    box-shadow: 10px 10px 36px -11px rgba(147, 38, 26, 0.75);
+    -webkit-box-shadow: 10px 10px 36px -11px rgba(147, 38, 26, 0.75);
+    -moz-box-shadow: 10px 10px 36px -11px rgba(147, 38, 26, 0.75);
     color: white;
     width: 170px;
   }

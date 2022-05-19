@@ -8,9 +8,6 @@ const Wrapper = styled.div`
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  max-width: 1440px;
-  min-width: 375px;
-  min-height: 375px;
 `;
 
 const StyledHeader = styled.h1`
