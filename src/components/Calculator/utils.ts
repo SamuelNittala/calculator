@@ -50,12 +50,16 @@ export const handleInput = (pressedKey: string, input: any, setInput: any, setEr
       try {
         if (input) {
           // eslint-disable-next-line no-eval
-          let res = window.eval(input);
+          const res = window.eval(input);
           if (typeof res !== 'number') {
             throw new Error();
           }
-          res = Number(res).toFixed(4);
-          setInput(String(res));
+          let zeroIndex = String(res).length - 1;
+          while (String(res)[zeroIndex] === '0') {
+            if (String(res)[zeroIndex] === '.') break;
+            zeroIndex -= 1;
+          }
+          setInput(String(Number(res).toFixed(4)).slice(0, zeroIndex + 1));
         }
       } catch (err) {
         setError(true);
