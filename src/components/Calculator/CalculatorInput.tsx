@@ -13,6 +13,7 @@ const Input = styled.input`
   margin: 0 auto;
   margin-top: 1rem;
   margin-bottom: 1.5rem;
+  text-align: right;
   color: white;
   font-family: 'League Spartan', sans-serif;
   padding: 1.25rem;
