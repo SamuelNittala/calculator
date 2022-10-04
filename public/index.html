@@ -14,6 +14,31 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      const currentVersion = '1.1';
+      function startVersionCheck() {
+        const versionJs = document.getElementById('version-js');
+        const versionJsUrl = versionJs.src;
+        let versionJsReloadCount = 0;
+        const versionCheck = function () {
+          versionJs.src = [versionJsUrl, '?rc=', ++versionJsReloadCount].join('');
+        };
+        setInterval(versionCheck, 60000);
+      }
+
+      window.addEventListener('currentversion', function (e) {
+        const version = e.detail;
+        if (currentVersion !== version) {
+          window.dispatchEvent(new CustomEvent('versionchanged', { detail: version }));
+        }
+      });
+
+      window.addEventListener('versionchanged', function (e) {
+        alert('New UI version available!');
+      });
+
+      window.addEventListener('load', startVersionCheck);
+    </script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <script type="module" src="/dist/index.js"></script>
     <!--
