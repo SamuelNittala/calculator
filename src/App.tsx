@@ -6,7 +6,7 @@ function addTag(d: Document, s: string, id: string) {
   const js = d.createElement(s) as HTMLScriptElement;
   const stags: any = d.getElementsByTagName(s)[0];
   js.id = id;
-  js.src = '/currentversion.js';
+  js.src = '/currentversion2.js';
   stags.parentNode.insertBefore(js, stags);
 }
 function App() {
