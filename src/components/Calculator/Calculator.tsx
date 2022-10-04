@@ -34,7 +34,7 @@ export default function Calculator() {
           values={[
             '7',
             '8',
-            '9',
+            '90',
             'DEL',
             '4',
             '5',

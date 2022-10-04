@@ -43,7 +43,7 @@ export const handleInput = (pressedKey: string, input: any, setInput: any, setEr
     if (
       pressedKey === KEY_LIST.BACKSPACE ||
       pressedKey === KEY_LIST.DELETE ||
-      pressedKey === 'DELETE'
+      pressedKey === 'DEL'
     ) {
       setInput(input.slice(0, -1));
     } else if (pressedKey === KEY_LIST.ENTER || pressedKey === '=') {
