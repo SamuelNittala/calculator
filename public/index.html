@@ -25,6 +25,7 @@
         const versionCheck = async function () {
           const body = await fetch('/currentversion.json')
           body.json().then((data) => {
+            console.log(data, "data");
             window.dispatchEvent(new CustomEvent('currentversion', { detail: data.version }));
           }).catch((err) => {
             //do nothing for now
