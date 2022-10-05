@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="expires" content="0">
+    <meta http-equiv="expires" content="0" />
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
@@ -19,13 +19,19 @@
   <body>
     <div id="root"></div>
     <script>
-      const currentVersion = '1.4'
+      const currentVersion = '1.2';
+
       function startVersionCheck() {
         const versionJs = document.getElementById('version-js');
         const versionJsUrl = versionJs.src;
         let versionJsReloadCount = 0;
-        const versionCheck = function () {
-          versionJs.src = [versionJsUrl, '?rc=', ++versionJsReloadCount].join('');
+        const versionCheck = async function () {
+          const body = await fetch('/currentversion.json')
+          body.json().then((data) => {
+            window.dispatchEvent(new CustomEvent('currentversion', { detail: data.version }));
+          }).catch((err) => {
+            //do nothing for now
+          });
         };
         setInterval(versionCheck, 6000);
       }
@@ -38,7 +44,7 @@
       });
 
       window.addEventListener('versionchanged', function (e) {
-        alert('New UI version available!');
+        alert('New UI version available');
       });
 
       window.addEventListener('load', startVersionCheck);
