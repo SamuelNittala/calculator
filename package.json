@@ -1,8 +1,8 @@
 {
   "scripts": {
-    "dev": "yarn prebuild && snowpack dev",
-    "build": "yarn prebuild && snowpack build",
-    "prebuild":"node postbuild.js",
+    "dev": "snowpack dev",
+    "build": "snowpack build",
+    "version-change": "node versionchange.js",
     "build-watch": "snowpack build --watch",
     "test": "jest",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
