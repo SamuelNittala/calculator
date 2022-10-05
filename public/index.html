@@ -23,13 +23,15 @@
 
       function startVersionCheck() {
         const versionCheck = async function () {
+          console.log(currentVersion);
           const body = await fetch('/currentversion.json');
           body
             .json()
             .then((data) => {
-              if(!currentVersion) currentVersion = data.version;
-              console.log(currentVersion, version);
-              window.dispatchEvent(new CustomEvent('currentversion', { detail: data.version }));
+              if (currentVersion !== data.version) {
+                if(!currentVersion) currentVersion = data.version;
+                else window.dispatchEvent(new CustomEvent('versionchanged', { detail: data.version }));
+              }
             })
             .catch((err) => {
               //do nothing for now
@@ -38,12 +40,12 @@
         setInterval(versionCheck, 6000);
       }
 
-      window.addEventListener('currentversion', function (e) {
-        const version = e.detail;
-        if (currentVersion !== version) {
-          window.dispatchEvent(new CustomEvent('versionchanged', { detail: version }));
-        }
-      });
+      // // window.addEventListener('currentversion', function (e) {
+      //   const version = e.detail;
+      //   if (currentVersion !== version) {
+      //     window.dispatchEvent(new CustomEvent('versionchanged', { detail: version }));
+      //   }
+      // });
 
       window.addEventListener('versionchanged', function (e) {
         window.location.reload();
