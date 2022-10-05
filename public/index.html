@@ -20,7 +20,6 @@
     <div id="root"></div>
     <script>
       let currentVersion = null;
-
       function startVersionCheck() {
         const versionCheck = async function () {
           console.log(currentVersion);
@@ -30,7 +29,9 @@
             .then((data) => {
               if (currentVersion !== data.version) {
                 if(!currentVersion) currentVersion = data.version;
-                else window.dispatchEvent(new CustomEvent('versionchanged', { detail: data.version }));
+                else {
+                  window.location.reload();
+                }
               }
             })
             .catch((err) => {
@@ -39,17 +40,6 @@
         };
         setInterval(versionCheck, 6000);
       }
-
-      // // window.addEventListener('currentversion', function (e) {
-      //   const version = e.detail;
-      //   if (currentVersion !== version) {
-      //     window.dispatchEvent(new CustomEvent('versionchanged', { detail: version }));
-      //   }
-      // });
-
-      window.addEventListener('versionchanged', function (e) {
-        window.location.reload();
-      });
 
       window.addEventListener('load', startVersionCheck);
     </script>
