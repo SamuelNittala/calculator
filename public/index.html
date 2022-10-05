@@ -19,7 +19,7 @@
   <body>
     <div id="root"></div>
     <script>
-      const currentVersion = '1.4';
+      const currentVersion = '1.5';
 
       function startVersionCheck() {
         const versionCheck = async function () {
@@ -42,7 +42,8 @@
       });
 
       window.addEventListener('versionchanged', function (e) {
-        alert('New UI version available');
+        alert('New UI version available reloading..');
+        window.location.reload();
       });
 
       window.addEventListener('load', startVersionCheck);
