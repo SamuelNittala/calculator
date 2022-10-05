@@ -19,17 +19,20 @@
   <body>
     <div id="root"></div>
     <script>
-      const currentVersion = '1.7';
+      let currentVersion = null;
 
       function startVersionCheck() {
         const versionCheck = async function () {
-          const body = await fetch('/currentversion.json')
-          body.json().then((data) => {
-            console.log(data, "data");
-            window.dispatchEvent(new CustomEvent('currentversion', { detail: data.version }));
-          }).catch((err) => {
-            //do nothing for now
-          });
+          const body = await fetch('/currentversion.json');
+          body
+            .json()
+            .then((data) => {
+              if(!currentVersion) currentVersion = data.version;
+              window.dispatchEvent(new CustomEvent('currentversion', { detail: data.version }));
+            })
+            .catch((err) => {
+              //do nothing for now
+            });
         };
         setInterval(versionCheck, 6000);
       }
@@ -42,7 +45,7 @@
       });
 
       window.addEventListener('versionchanged', function (e) {
-        window.location.reload();
+        // window.location.reload();
       });
 
       window.addEventListener('load', startVersionCheck);
