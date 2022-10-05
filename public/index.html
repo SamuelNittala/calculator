@@ -19,12 +19,9 @@
   <body>
     <div id="root"></div>
     <script>
-      const currentVersion = '1.2';
+      const currentVersion = '1.3';
 
       function startVersionCheck() {
-        const versionJs = document.getElementById('version-js');
-        const versionJsUrl = versionJs.src;
-        let versionJsReloadCount = 0;
         const versionCheck = async function () {
           const body = await fetch('/currentversion.json')
           body.json().then((data) => {
